@@ -1,7 +1,8 @@
 N, K = map(int, input().split())
 
+
 def base9(number):
-    result = ''
+    result = ""
 
     while number > 0:
         result = str(number % 9) + result
@@ -9,9 +10,10 @@ def base9(number):
 
     return int(result)
 
+
 for i in range(K):
     N = int(str(N), 8)
     N = base9(N)
-    N = int(str(N).replace('8', '5'))
+    N = int(str(N).replace("8", "5"))
 
 print(N)
