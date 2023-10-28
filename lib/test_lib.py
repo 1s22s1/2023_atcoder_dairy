@@ -39,3 +39,13 @@ def test_base3():
     assert 22020 == base3(222)
     assert 110102 == base3(335)
     assert 112111 == base3(391)
+
+
+def hundreds_place(number):
+    return number // 100 % 10
+
+
+def test_hundreds_place():
+    assert 1 == hundreds_place(101)
+    assert 8 == hundreds_place(9829)
+    assert 5 == hundreds_place(23571)
