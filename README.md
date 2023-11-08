@@ -2,8 +2,8 @@
 
 This is dairy for solving problems on AtCoder.
 
-## Test library
+## Test Standard library
 
 ```console
-pytest lib
+julia stdlib/test_string.jl
 ```
