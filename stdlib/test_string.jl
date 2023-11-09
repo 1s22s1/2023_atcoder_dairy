@@ -24,6 +24,18 @@ module TestString
             @test lowercase("Konoe") == "konoe"
             @test lowercase("KONOE") == "konoe"
         end
+
+        @testset "To extract a character at specified position from string" begin
+            @test "Ghuanzhou"[1] == 'G'
+            @test "Ghuanzhou"[2] == 'h'
+            @test "Ghuanzhou"[9] == 'u'
+            @test "Ghuanzhou"[8] == 'o'
+        end
+
+        @testset "To extract portion of a string" begin
+            @test "Ghuanzhou"[1:4] == "Ghua"
+            @test "Ghuanzhou"[2:3] == "hu"
+        end
     end
 end
 
