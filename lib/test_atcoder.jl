@@ -2,8 +2,16 @@ module TestAtcoder
     using Test
 
     function main()
+        @testset "Parse array of Int" begin
+            @test parse.(Int, split("2 3 5")) == [2, 3, 5]
+        end
+
         @testset "From Int to String" begin
             @test string(2) == "2"
+        end
+
+        @testset "From String to Int" begin
+            @test parse(Int, "2") == 2
         end
 
         @testset "From decimal to n-decimal" begin
