@@ -37,6 +37,13 @@ module TestAtcoder
             @test sort(list2, by=x->x[1]) == [[1, 1], [2, 2], [3, 4], [4, 3], [5, 5]]
             @test sort(list2, by=x->x[2]) == [[1, 1], [2, 2], [4, 3], [3, 4], [5, 5]]
         end
+
+        @testset "Any" begin
+            numbers = [4, 2, 1, 3]
+
+            @test any(n -> n ≤ 3, numbers) == true
+            @test any(n -> n ≥ 5, numbers) == false
+        end
     end
 end
 
