@@ -2,16 +2,8 @@ module TestAtcoder
     using Test
 
     function main()
-        @testset "Parse array of Int" begin
-            @test parse.(Int, split("2 3 5")) == [2, 3, 5]
-        end
-
         @testset "From Int to String" begin
             @test string(2) == "2"
-        end
-
-        @testset "From String to Int" begin
-            @test parse(Int, "2") == 2
         end
 
         @testset "From decimal to n-decimal" begin
@@ -27,15 +19,10 @@ module TestAtcoder
         end
 
         @testset "Sort" begin
-            list = [3, 2, 4, 1, 5]
+            list = [[3, 4], [2, 2], [4, 3], [1, 1], [5, 5]]
 
-            @test sort(list) == [1, 2, 3, 4, 5]
-            @test sort(list, rev=true) == [5, 4, 3, 2, 1]
-
-            list2 = [[3, 4], [2, 2], [4, 3], [1, 1], [5, 5]]
-
-            @test sort(list2, by=x->x[1]) == [[1, 1], [2, 2], [3, 4], [4, 3], [5, 5]]
-            @test sort(list2, by=x->x[2]) == [[1, 1], [2, 2], [4, 3], [3, 4], [5, 5]]
+            @test sort(list, by=x->x[1]) == [[1, 1], [2, 2], [3, 4], [4, 3], [5, 5]]
+            @test sort(list, by=x->x[2]) == [[1, 1], [2, 2], [4, 3], [3, 4], [5, 5]]
         end
 
         @testset "Any" begin
@@ -43,6 +30,18 @@ module TestAtcoder
 
             @test any(n -> n ≤ 3, numbers) == true
             @test any(n -> n ≥ 5, numbers) == false
+        end
+
+        @testset "Get row and column" begin
+            A = [1 2 3; 4 5 6; 7 8 9]
+
+            @test A[1, :] == [1, 2, 3]
+            @test A[2, :] == [4, 5, 6]
+            @test A[3, :] == [7, 8, 9]
+
+            @test A[:, 1] == [1, 4, 7]
+            @test A[:, 2] == [2, 5, 8]
+            @test A[:, 3] == [3, 6, 9]
         end
     end
 end
