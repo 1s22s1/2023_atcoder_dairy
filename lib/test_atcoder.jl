@@ -26,10 +26,24 @@ module TestAtcoder
         end
 
         @testset "Any" begin
-            numbers = [4, 2, 1, 3]
+            list = [1, 2, 3, 4]
 
-            @test any(n -> n ≤ 3, numbers) == true
-            @test any(n -> n ≥ 5, numbers) == false
+            @test any(n -> n ≤ 3, list) == true
+            @test any(n -> n ≥ 5, list) == false
+        end
+
+        @testset "Filter" begin
+            list = [1, 2, 3, 4]
+
+            @test filter(n -> n ≤ 3, list) == [1, 2, 3]
+            @test filter(n -> n ≥ 5, list) == []
+        end
+
+        @testset "List comprehension" begin
+            list = [1, 2, 3, 4]
+
+            @test [n for n in list if n ≤ 3] == [1, 2, 3]
+            @test [n for n in list if n ≥ 5] == []
         end
 
         @testset "Get row and column" begin
