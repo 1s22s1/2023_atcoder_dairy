@@ -1,9 +1,7 @@
 H, W = parse.(Int, split(readline()))
 C = []
 
-for i in 1:H
-    push!(C, split(readline(), ""))
-end
+C = [split(readline(), "") for i in 1:H]
 
 for i in 1:H*2
     row = []
